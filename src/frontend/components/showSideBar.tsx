@@ -78,11 +78,11 @@ export default function ShowSideBar() {
             </div>
           </div>{' '}
           <div className=" absolute bottom-2 left-0 w-full flex justify-center ">
-            <Link className="flex" to={'https://github.com/khatab1324'}>
+            <Link className="flex" to={'https://github.com/zeinalkhiri'}>
               <FaGithub size={30} />
               <Link
                 className="flex ml-5"
-                to={'https://www.linkedin.com/in/khattab-fayyad-760354261/'}
+                to={'https:linkedin.com/in/zein-alkhiri-7ab4242b6'}
               >
                 <FaLinkedin size={30} />
               </Link>
