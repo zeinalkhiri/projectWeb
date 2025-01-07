@@ -1,0 +1,38 @@
+services:
+  mysqldb:
+    image: mysql:8.0
+    container_name: mysqlcontaiermoveilist
+    command: --default-authentication-plugin=mysql_native_password
+    restart: unless-stopped
+    volumes:
+      - ./dbinit/init.sql:/docker-entrypoint-initdb.d/0_init.sql
+      - $HOME/database_movielist:/var/lib/mysql
+    ports:
+      - 3306:3306
+    expose:
+      - 3306
+    environment:
+      MYSQL_DATABASE: mymovielist
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: Pass_1122
+      MYSQL_ROOT_PASSWORD: Pass_1122
+      SERVICE_TAGS: prod
+      SERVICE_NAME: mysqldb
+
+  nodeapp:
+    container_name: nodeappcontainermymovielist
+    build: .
+    image: nodeapp
+    volumes:
+      - $HOME/nodeapp:/code
+    ports:
+      - 3000:3000
+    expose:
+      - 3000
+    environment:
+      DATABASE_URL: 'mysql://root:Pass_1122@mysqldb:3306/mymovielist'
+
+networks:
+  internalnet:
+    driver: bridge
+    external: true
