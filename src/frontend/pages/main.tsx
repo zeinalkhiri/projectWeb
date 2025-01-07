@@ -35,7 +35,7 @@ function Main() {
           aria-label="Global"
         >
           <div className="flex lg:flex-1">
-            <Link to={'https://github.com/khatab1324'} className="-m-1.5 p-1.5">
+            <Link to={'/'} className="-m-1.5 p-1.5">
               <svg
                 className={'h-8 w-auto'}
                 xmlns="http://www.w3.org/2000/svg"
